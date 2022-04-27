@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movimentacao")]
     [SerializeField] private float velh = 5f;
-    [SerializeField] private float velv = 5f;
+    [SerializeField] private float velv = 9f;
     private Rigidbody2D meuRB;
     private SpriteRenderer sprite;
     private Animator meuAnim;
+    private int totalPulos = 1;
+    private int qtdPulos = 1;
     
     
     void Start()
@@ -59,8 +61,15 @@ public class PlayerController : MonoBehaviour
     private void Pulando() {
          var pulo = Input.GetButtonDown("Jump");
 
-        if (pulo) {    
+        if (pulo && qtdPulos > 0) {    
             meuRB.velocity = new Vector2(meuRB.velocity.x, velv);   
+            qtdPulos--;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Chao")) {
+            qtdPulos = totalPulos;
         }
     }
 }
