@@ -48,5 +48,8 @@ public class PlayerController : MonoBehaviour
 
         //tb poderia ter sido feito assim
         //transform.localScale = new Vector3(Mathf.Sign(horizontal), 1f, 1f);
+
+        //para mudar a transicao da animacao tb poderia fazer assim
+        //meuAnim.SetBool("Movendo", horizontal != 0);    
     }
 }
