@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float velocidade = 5f;
     private Rigidbody2D meuRB;
     private SpriteRenderer sprite;
+    private Animator meuAnim;
     
     
     void Start()
     {
         meuRB = GetComponent<Rigidbody2D>();    
         sprite = GetComponent<SpriteRenderer>();
+        meuAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -33,11 +35,15 @@ public class PlayerController : MonoBehaviour
         meuRB.velocity = minhaVelocidade;
 
         if (horizontal != 0) {
+            meuAnim.SetBool("Movendo", true);
+
             if (horizontal >= 0) {
                 sprite.flipX = false;
             } else {
                 sprite.flipX = true;
             }
+        } else {
+            meuAnim.SetBool("Movendo", false);
         }
 
         //tb poderia ter sido feito assim
