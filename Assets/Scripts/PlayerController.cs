@@ -78,4 +78,10 @@ public class PlayerController : MonoBehaviour
             meuAnim.SetBool("NoChao", true);
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Chao")) {
+            meuAnim.SetBool("NoChao", false);
+        }
+    }
 }
