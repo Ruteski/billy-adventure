@@ -69,14 +69,13 @@ public class PlayerController : MonoBehaviour
             meuAnim.SetBool("NoChao", false);
             
             qtdPulos--;
-        } else {
-            meuAnim.SetBool("NoChao", true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Chao")) {
             qtdPulos = totalPulos;
+            meuAnim.SetBool("NoChao", true);
         }
     }
 }
