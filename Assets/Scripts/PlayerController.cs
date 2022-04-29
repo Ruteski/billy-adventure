@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     private Animator meuAnim;
     private int totalPulos = 1;
     private int qtdPulos = 1;
+
+    [Header("Raycast")]
+    [SerializeField] private LayerMask layerLevel;
+    private BoxCollider2D boxCol;
+
     
     
     void Start()
@@ -20,6 +25,7 @@ public class PlayerController : MonoBehaviour
         meuRB = GetComponent<Rigidbody2D>();    
         sprite = GetComponent<SpriteRenderer>();
         meuAnim = GetComponent<Animator>();
+        boxCol = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -29,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() {
         Movimento();
+        IsGrounded();
     }
 
     private void Movimento() {
@@ -83,5 +90,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Chao")) {
             meuAnim.SetBool("NoChao", false);
         }
+    }
+
+    //Raycast de colisao no chao
+    private bool IsGrounded() {
+        //criando o raycast           limites do colisor, direcao(p/ baixo), distancia da linha ate o colisor, layer de colisao
+        bool chao = Physics2D.Raycast(boxCol.bounds.center, Vector2.down, 1f, layerLevel);
+
+
+        return chao;
     }
 }

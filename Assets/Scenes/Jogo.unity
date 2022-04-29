@@ -353,6 +353,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velh: 5
   velv: 9
+  layerLevel:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &1146314878
 Animator:
   serializedVersion: 3
