@@ -22,9 +22,9 @@ public class PigController : MonoBehaviour
     private void Move() {
         if (esperaMovimento <= 0) {
             //lado de movimentacao aleatorio
-            float _velh = velh * Mathf.Sign(Random.Range(-1, 1));
+            velh *= Mathf.Sign(Random.Range(-1, 1));
 
-            meuRB.velocity = new Vector2(_velh, meuRB.velocity.y);
+            meuRB.velocity = new Vector2(velh, meuRB.velocity.y);
             transform.localScale = new Vector3(Mathf.Sign(meuRB.velocity.x) * -1, 1f, 1f);
 
             esperaMovimento = Random.Range(1f, 3f);
