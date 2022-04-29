@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movimentacao")]
     [SerializeField] private float velh = 5f;
-    [SerializeField] private float velv = 9f;
+    [SerializeField] private float velv = 9.5f;
     private Rigidbody2D meuRB;
     private SpriteRenderer sprite;
     private Animator meuAnim;
@@ -69,25 +69,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Pulando() {
-        var pulo = Input.GetButtonDown("Jump");
+        var pulo = Input.GetButtonDown("Jump") && IsGrounded();
 
         meuAnim.SetFloat("Velv", meuRB.velocity.y);
 
         if (pulo && qtdPulos > 0) {    
             meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
-
-            //meuAnim.SetBool("NoChao", false);
-            
             qtdPulos--;
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision) {
-    //    if (collision.gameObject.CompareTag("Chao")) {
-    //        //qtdPulos = totalPulos;
-    //        //meuAnim.SetBool("NoChao", true);
-    //    }
-    //}
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Chao")) {
@@ -100,18 +90,16 @@ public class PlayerController : MonoBehaviour
         //criando o raycast           limites do colisor, direcao(p/ baixo), distancia da linha ate o colisor, layer de colisao
         bool chao = Physics2D.Raycast(boxCol.bounds.center, Vector2.down, .5f, layerLevel);
 
-        Color cor;
+        ////definindo uma cor para a linha de debug
+        ////Color cor;
+        //if (chao) {
+        //    cor = Color.red;
+        //} else {
+        //    cor = Color.green;
+        //}
 
-        //definindo uma cor para a linha de debug
-        if (chao) {
-            cor = Color.red;
-        } else {
-            cor = Color.green;
-        }
-
-        //debug da linha
-        Debug.DrawRay(boxCol.bounds.center, Vector2.down * 0.5f, cor);
-
+        ////debug da linha
+        //Debug.DrawRay(boxCol.bounds.center, Vector2.down * 0.5f, cor);
 
         return chao;
     }
