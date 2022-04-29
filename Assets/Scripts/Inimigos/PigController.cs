@@ -22,12 +22,16 @@ public class PigController : MonoBehaviour
     private void Move() {
         if (esperaMovimento <= 0) {
             //lado de movimentacao aleatorio
-            velh *= Mathf.Sign(Random.Range(-1, 1));
+            int direcao = Random.Range(-1, 2);
 
-            meuRB.velocity = new Vector2(velh, meuRB.velocity.y);
-            transform.localScale = new Vector3(Mathf.Sign(meuRB.velocity.x) * -1, 1f, 1f);
+            meuRB.velocity = new Vector2(velh * direcao, meuRB.velocity.y);
 
-            esperaMovimento = Random.Range(1f, 3f);
+            // so altera o lado da sprite se a velocidade x foi diferente de 0
+            if (meuRB.velocity.x != 0) {
+                transform.localScale = new Vector3(Mathf.Sign(meuRB.velocity.x) * -1, 1f, 1f);
+            }
+
+            esperaMovimento = Random.Range(1f, 4f);
         } else {
             esperaMovimento -= Time.deltaTime;
         }
