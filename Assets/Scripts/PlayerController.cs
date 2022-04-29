@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCol;
 
     
-    
     void Start()
     {
         meuRB = GetComponent<Rigidbody2D>();    
@@ -35,7 +34,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() {
         Movimento();
-        IsGrounded();
+
+        meuAnim.SetBool("NoChao", IsGrounded());
+
+        // se toquei no chao, reseto os pulos
+        if (IsGrounded()) {
+            qtdPulos = totalPulos;
+        }
     }
 
     private void Movimento() {
@@ -56,8 +61,6 @@ public class PlayerController : MonoBehaviour
             meuAnim.SetBool("Movendo", false);
         }
 
-
-
         //tb poderia ter sido feito assim
         //transform.localScale = new Vector3(Mathf.Sign(horizontal), 1f, 1f);
 
@@ -73,18 +76,18 @@ public class PlayerController : MonoBehaviour
         if (pulo && qtdPulos > 0) {    
             meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
 
-            meuAnim.SetBool("NoChao", false);
+            //meuAnim.SetBool("NoChao", false);
             
             qtdPulos--;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Chao")) {
-            qtdPulos = totalPulos;
-            meuAnim.SetBool("NoChao", true);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision) {
+    //    if (collision.gameObject.CompareTag("Chao")) {
+    //        //qtdPulos = totalPulos;
+    //        //meuAnim.SetBool("NoChao", true);
+    //    }
+    //}
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Chao")) {
@@ -95,7 +98,19 @@ public class PlayerController : MonoBehaviour
     //Raycast de colisao no chao
     private bool IsGrounded() {
         //criando o raycast           limites do colisor, direcao(p/ baixo), distancia da linha ate o colisor, layer de colisao
-        bool chao = Physics2D.Raycast(boxCol.bounds.center, Vector2.down, 1f, layerLevel);
+        bool chao = Physics2D.Raycast(boxCol.bounds.center, Vector2.down, .5f, layerLevel);
+
+        Color cor;
+
+        //definindo uma cor para a linha de debug
+        if (chao) {
+            cor = Color.red;
+        } else {
+            cor = Color.green;
+        }
+
+        //debug da linha
+        Debug.DrawRay(boxCol.bounds.center, Vector2.down * 0.5f, cor);
 
 
         return chao;
