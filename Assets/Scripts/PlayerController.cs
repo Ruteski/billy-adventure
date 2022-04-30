@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
         if (minhaPorta != null) {   
             if (Input.GetKeyUp(KeyCode.E)) {
                 minhaPorta.Abrindo();
+                meuAnim.SetTrigger("Entrando");
             }
         }
     }
