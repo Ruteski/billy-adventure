@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private void Pulando() {
         var pulo = Input.GetButtonDown("Jump") && IsGrounded();
 
-        meuAnim.SetFloat("Velv", meuRB.velocity.y);
+        meuAnim.SetFloat("Velv", meuRB.velocity.y); 
 
         if (pulo && qtdPulos > 0) {    
             meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
@@ -88,7 +88,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Inimigo")) {
-
+            if (transform.position.y > collision.transform.position.y) {
+                print("pulei no inimigo");
+            } else {
+                print("por baixo");
+            }
         }
     }
 
