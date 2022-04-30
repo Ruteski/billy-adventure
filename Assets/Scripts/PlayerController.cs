@@ -111,7 +111,10 @@ public class PlayerController : MonoBehaviour
                 if (delayDano <= 0) {
                     vida--; 
 
-                    delayDano = 2f;  
+                    delayDano = 2f;
+
+                    meuAnim.SetTrigger("Dano");
+                    meuAnim.SetInteger("Vida", vida);
                 }
             }
         }
