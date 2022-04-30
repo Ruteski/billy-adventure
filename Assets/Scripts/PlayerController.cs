@@ -89,9 +89,9 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Inimigo")) {
             if (transform.position.y > collision.transform.position.y) {
-                print("pulei no inimigo");
+                meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
             } else {
-                print("por baixo");
+                
             }
         }
     }
