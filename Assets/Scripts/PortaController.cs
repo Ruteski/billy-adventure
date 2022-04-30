@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PortaController : MonoBehaviour
 {
+    [SerializeField] private string destino;
+
     private Animator meuAnim;
 
     // Start is called before the first frame update
@@ -20,5 +22,9 @@ public class PortaController : MonoBehaviour
 
     public void Abrindo() {
         meuAnim.SetTrigger("Abrir");
+    }
+
+    public void IndoParaDestino() {
+        FindObjectOfType<GameManager>().MudaCena(destino);
     }
 }
