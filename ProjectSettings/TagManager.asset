@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chao
   - Inimigo
+  - Porta
   layers:
   - Default
   - TransparentFX

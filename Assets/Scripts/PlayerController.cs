@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerLevel;
     private BoxCollider2D boxCol;
 
+    [SerializeField] private PortaController minhaPorta;
+
     
     void Start()
     {
@@ -105,7 +107,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Porta")) {
+            minhaPorta = null;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
+        //checando se estou em uma porta
+        if (collision.gameObject.CompareTag("Porta")) {
+            minhaPorta = collision.GetComponent<PortaController>();
+        }
+
         if (collision.gameObject.CompareTag("Inimigo")) {
             if (transform.position.y > collision.transform.position.y + .2f) {
                 meuRB.velocity = new Vector2(meuRB.velocity.x, velv);

@@ -530,12 +530,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7683794757d5e44f994cf281fb7c451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 3
   velh: 5
   velv: 9.5
   layerLevel:
     serializedVersion: 2
     m_Bits: 256
+  minhaPorta: {fileID: 0}
 --- !u!95 &1146314878
 Animator:
   serializedVersion: 3
@@ -13892,9 +13893,9 @@ GameObject:
   - component: {fileID: 1983775329}
   - component: {fileID: 1983775333}
   - component: {fileID: 1983775332}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Porta
-  m_TagString: Untagged
+  m_TagString: Porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
