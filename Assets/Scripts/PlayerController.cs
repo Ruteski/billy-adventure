@@ -85,6 +85,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Inimigo")) {
+
+        }
+    }
+
     //Raycast de colisao no chao
     private bool IsGrounded() {
         //criando o raycast           limites do colisor, direcao(p/ baixo), distancia da linha ate o colisor, layer de colisao
