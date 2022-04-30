@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
     private void AbrindoPorta() {
         if (minhaPorta != null) {   
-            if (Input.GetKeyUp(KeyCode.W)) {
+            if (Input.GetKeyUp(KeyCode.E)) {
                 minhaPorta.Abrindo();
             }
         }
