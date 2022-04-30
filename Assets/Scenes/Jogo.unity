@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7683794757d5e44f994cf281fb7c451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 3
+  vida: 30
   velh: 5
   velv: 9.5
   layerLevel:

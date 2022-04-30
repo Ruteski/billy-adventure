@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         if (!morto) {
             Pulando();
             Invencibilidade();
+            AbrindoPorta();
         }
     }
 
@@ -160,5 +161,13 @@ public class PlayerController : MonoBehaviour
         //Debug.DrawRay(boxCol.bounds.center, Vector2.down * 0.5f, cor);
 
         return chao;
+    }
+
+    private void AbrindoPorta() {
+        if (minhaPorta != null) {   
+            if (Input.GetKeyUp(KeyCode.W)) {
+                minhaPorta.Abrindo();
+            }
+        }
     }
 }
