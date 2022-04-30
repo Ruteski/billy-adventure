@@ -7,6 +7,8 @@ public class PigController : MonoBehaviour
     [SerializeField] private float velh = 2f;
     [SerializeField] private float esperaMovimento = 1f;
     [SerializeField] private Animator anim;
+    [SerializeField] private LayerMask layerLevel;
+    private BoxCollider2D boxCol;
     private Rigidbody2D meuRB;
     
     
@@ -14,11 +16,20 @@ public class PigController : MonoBehaviour
     private void Start() {
         meuRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        boxCol = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     private void Update() {
+        
+    }
+
+    private void FixedUpdate() {
         Move();
+
+        if (IsCollisionWall()) {
+
+        }
     }
 
     private void Move() {
@@ -40,5 +51,26 @@ public class PigController : MonoBehaviour
         }
 
         anim.SetBool("Movendo", meuRB.velocity.x != 0f);
+    }
+
+    //raycast de colisao com parede
+    private bool IsCollisionWall () {
+        Vector2 dir = new Vector2(Mathf.Sign(meuRB.velocity.x), 0f);
+
+        bool wall = Physics2D.Raycast(boxCol.bounds.center, dir , .5f, layerLevel);
+
+        ////definindo uma cor para a linha de debug
+        //Color cor;
+        
+        //if (wall) {
+        //    cor = Color.red;
+        //} else {
+        //    cor = Color.green;
+        //}
+
+        ////debug da linha
+        //Debug.DrawRay(boxCol.bounds.center, dir * 0.5f, cor);
+
+        return false;
     }
 }
