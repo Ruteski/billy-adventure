@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    [Header("Status")]
+    [SerializeField] private int vida = 3;
+    private float delayDano = 0f;
+
     [Header("Movimentacao")]
     [SerializeField] private float velh = 5f;
     [SerializeField] private float velv = 9.5f;
@@ -27,9 +31,15 @@ public class PlayerController : MonoBehaviour
         boxCol = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
-    {
+    void Update() {
         Pulando();
+        Invencibilidade();
+    }
+
+    private void Invencibilidade() {
+        if (delayDano > 0f) {
+            delayDano -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate() {
@@ -81,17 +91,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Chao")) {
-            meuAnim.SetBool("NoChao", false);
+            meuAnim.SetBool("NoChao", false); 
         }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Inimigo")) {
-            if (transform.position.y > collision.transform.position.y) {
+            if (transform.position.y > collision.transform.position.y + .2f) {
                 meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
             } else {
-                
+                //perdendo vida
+                if (delayDano <= 0) {
+                    vida--; 
+
+                    delayDano = 2f;  
+                }
             }
         }
     }
