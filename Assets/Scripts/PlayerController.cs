@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Status")]
     [SerializeField] private int vida = 3;
     private float delayDano = 0f;
+    private bool morto = false;
 
     [Header("Movimentacao")]
     [SerializeField] private float velh = 5f;
@@ -32,8 +33,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
-        Pulando();
-        Invencibilidade();
+        if (!morto) {
+            Pulando();
+            Invencibilidade();
+        }
     }
 
     private void Invencibilidade() {
@@ -43,14 +46,21 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Movimento();
+        if (!morto) {
+            Movimento();
 
-        meuAnim.SetBool("NoChao", IsGrounded());
+            meuAnim.SetBool("NoChao", IsGrounded());
 
-        // se toquei no chao, reseto os pulos
-        if (IsGrounded()) {
-            qtdPulos = totalPulos;
+            // se toquei no chao, reseto os pulos
+            if (IsGrounded()) {
+                qtdPulos = totalPulos;
+            }
         }
+    }
+
+    public void Morrendo() { 
+        morto = true;
+        meuRB.velocity = Vector3.zero;  
     }
 
     private void Movimento() {
