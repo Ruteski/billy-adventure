@@ -26,13 +26,18 @@ public class PigController : MonoBehaviour
 
     private void FixedUpdate() {
         Move();
-
-        if (IsCollisionWall()) {
-
-        }
     }
 
     private void Move() {
+        if (IsCollisionWall()) {
+            meuRB.velocity = new Vector2(meuRB.velocity.x * -1f, meuRB.velocity.y);
+
+            if (meuRB.velocity.x != 0) {
+                transform.localScale = new Vector3(Mathf.Sign(meuRB.velocity.x) * -1, 1f, 1f);
+            }
+        }
+
+
         if (esperaMovimento <= 0) {
             
             //lado de movimentacao aleatorio
@@ -71,6 +76,6 @@ public class PigController : MonoBehaviour
         ////debug da linha
         //Debug.DrawRay(boxCol.bounds.center, dir * 0.5f, cor);
 
-        return false;
+        return wall;
     }
 }
