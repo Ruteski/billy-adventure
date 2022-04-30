@@ -167,8 +167,14 @@ public class PlayerController : MonoBehaviour
         if (minhaPorta != null) {   
             if (Input.GetKeyUp(KeyCode.E)) {
                 minhaPorta.Abrindo();
-                meuAnim.SetTrigger("Entrando");
+
+                Invoke("Entrando", 1.5f);
             }
         }
+    }
+
+    private void Entrando() {
+        meuAnim.SetTrigger("Entrando");
+        meuRB.velocity = Vector2.zero;
     }
 }
