@@ -8,6 +8,10 @@ public class PigController : MonoBehaviour
     [SerializeField] private float esperaMovimento = 1f;
     [SerializeField] private Animator anim;
     [SerializeField] private LayerMask layerLevel;
+
+    // box collider do meu colisor
+    [SerializeField] private BoxCollider2D colisor;
+
     private BoxCollider2D boxCol;
     private Rigidbody2D meuRB;
     private bool morto = false;
@@ -34,6 +38,9 @@ public class PigController : MonoBehaviour
     public void Morrendo() {
         morto = true;
         meuRB.velocity = Vector2.zero;
+
+        Destroy(gameObject, 2f);
+        colisor.enabled = false;
     }
 
     private void Move() {

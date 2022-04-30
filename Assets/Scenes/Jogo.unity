@@ -13662,6 +13662,7 @@ MonoBehaviour:
   layerLevel:
     serializedVersion: 2
     m_Bits: 256
+  colisor: {fileID: 658730558}
 --- !u!50 &1579582652
 Rigidbody2D:
   serializedVersion: 4
