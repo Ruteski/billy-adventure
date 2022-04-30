@@ -103,6 +103,9 @@ public class PlayerController : MonoBehaviour
                 //pegando o animator do pai do colisor e ativando a trigger dele
                 collision.GetComponentInParent<Animator>().SetTrigger("Dano");
 
+                //informando ao inimigo que ele esta morto
+                //collision.GetComponentInParent<PigController>().Morrendo();
+                //sera feito no inicio da animacao de dano, ira executar a funcao de morrendo
             } else {
                 //perdendo vida
                 if (delayDano <= 0) {

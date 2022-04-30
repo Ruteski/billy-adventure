@@ -10,6 +10,7 @@ public class PigController : MonoBehaviour
     [SerializeField] private LayerMask layerLevel;
     private BoxCollider2D boxCol;
     private Rigidbody2D meuRB;
+    private bool morto = false;
     
     
     // Start is called before the first frame update
@@ -25,7 +26,14 @@ public class PigController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Move();
+        if (!morto) {    
+            Move();
+        }
+    }
+
+    public void Morrendo() {
+        morto = true;
+        meuRB.velocity = Vector2.zero;
     }
 
     private void Move() {
