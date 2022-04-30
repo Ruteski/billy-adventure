@@ -6,12 +6,14 @@ public class PigController : MonoBehaviour
 {
     [SerializeField] private float velh = 2f;
     [SerializeField] private float esperaMovimento = 1f;
+    [SerializeField] private Animator anim;
     private Rigidbody2D meuRB;
     
     
     // Start is called before the first frame update
     private void Start() {
         meuRB = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class PigController : MonoBehaviour
 
     private void Move() {
         if (esperaMovimento <= 0) {
+            
             //lado de movimentacao aleatorio
             int direcao = Random.Range(-1, 2);
 
@@ -35,5 +38,7 @@ public class PigController : MonoBehaviour
         } else {
             esperaMovimento -= Time.deltaTime;
         }
+
+        anim.SetBool("Movendo", meuRB.velocity.x != 0f);
     }
 }
