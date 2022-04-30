@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Inimigo")) {
             if (transform.position.y > collision.transform.position.y + .2f) {
-                meuRB.velocity = new Vector2(meuRB.velocity.x, velv);
+                meuRB.velocity = new Vector2(meuRB.velocity.x, velv); 
             } else {
                 //perdendo vida
                 if (delayDano <= 0) {
