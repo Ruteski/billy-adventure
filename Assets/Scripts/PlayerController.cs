@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
                 //sera feito no inicio da animacao de dano, ira executar a funcao de morrendo
             } else {
                 //perdendo vida
-                if (delayDano <= 0) {
+                if (delayDano <= 0 && !morto) {
                     vida--; 
 
                     delayDano = 2f;
@@ -164,17 +164,19 @@ public class PlayerController : MonoBehaviour
     }
 
     private void AbrindoPorta() {
-        if (minhaPorta != null) {   
+        if (minhaPorta != null && !morto) {   
             if (Input.GetKeyUp(KeyCode.E)) {
                 minhaPorta.Abrindo();
 
                 Invoke("Entrando", 1.5f);
+                morto = true;
+                meuRB.velocity = Vector2.zero;
+                meuAnim.SetBool("Movendo", false);
             }
         }
     }
 
     private void Entrando() {
         meuAnim.SetTrigger("Entrando");
-        meuRB.velocity = Vector2.zero;
     }
 }
