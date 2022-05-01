@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCol;
 
     [SerializeField] private PortaController minhaPorta;
+    private GameManager gameManager;
 
     
     void Start()
@@ -32,8 +33,9 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         meuAnim = GetComponent<Animator>();
         boxCol = GetComponent<BoxCollider2D>();
+        gameManager = FindObjectOfType<GameManager>();
 
-        vida = FindObjectOfType<GameManager>().GetVida();
+        vida = gameManager.GetVida();
     }
 
     void Update() {
@@ -136,6 +138,8 @@ public class PlayerController : MonoBehaviour
                 //perdendo vida
                 if (delayDano <= 0 && !morto) {
                     vida--; 
+
+                    gameManager.SetVida(vida);
 
                     delayDano = 2f;
 

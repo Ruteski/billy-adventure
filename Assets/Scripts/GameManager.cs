@@ -26,4 +26,8 @@ public class GameManager : MonoBehaviour
     public int GetVida() {
         return vida;
     }
+
+    public void SetVida(int novaVida) {
+        vida = novaVida;
+    }
 }
