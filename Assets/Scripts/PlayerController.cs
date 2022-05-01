@@ -187,4 +187,8 @@ public class PlayerController : MonoBehaviour
     private void Entrando() {
         meuAnim.SetTrigger("Entrando");
     }
+
+    public void Reiniciando() {
+        gameManager.GameOver();
+    }
 }
