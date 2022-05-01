@@ -444,3 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72d033246fc3cb47bc57d9dbeb0bee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coracoes:
+  - {fileID: 977273396}
+  - {fileID: 1750750165}
+  - {fileID: 1547917742}

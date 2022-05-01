@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        AjustaVida();
     }
 
     public void MudaCena(string destino) {
@@ -39,5 +39,15 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         vida = vidaInicial;
         SceneManager.LoadScene("Jogo");
+    }
+
+    public void AjustaVida() {
+        for (int i = 0; i < coracoes.Length; i++) { 
+            if (i < vida) {
+                coracoes[i].enabled = true;
+            } else {
+                coracoes[i].enabled = false;
+            }
+        }
     }
 }
