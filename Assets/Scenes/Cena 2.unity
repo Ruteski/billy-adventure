@@ -16343,7 +16343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607257466450069561, guid: aeb9a13effa871a409909f8985691226, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.11111
+      value: -31.333332
       objectReference: {fileID: 0}
     - target: {fileID: 8607257466450069561, guid: aeb9a13effa871a409909f8985691226, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16444,7 +16444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8619061765804911591, guid: 7745ae082a5af19468ac6abe460e2f91, type: 3}
       propertyPath: destino
-      value: Jogo
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7745ae082a5af19468ac6abe460e2f91, type: 3}

@@ -4680,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8619061765804911591, guid: 7745ae082a5af19468ac6abe460e2f91, type: 3}
       propertyPath: destino
-      value: Cena 3
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7745ae082a5af19468ac6abe460e2f91, type: 3}

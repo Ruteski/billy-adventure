@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PortaController : MonoBehaviour
 {
-    [SerializeField] private string destino;
+    [SerializeField] private string destino = null;
 
     private Animator meuAnim;
 
@@ -26,5 +26,9 @@ public class PortaController : MonoBehaviour
 
     public void IndoParaDestino() {
         FindObjectOfType<GameManager>().MudaCena(destino);
+    }
+
+    public bool DestinoPorta() {
+        return destino != "";
     }
 }

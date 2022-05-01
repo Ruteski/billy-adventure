@@ -165,13 +165,15 @@ public class PlayerController : MonoBehaviour
 
     private void AbrindoPorta() {
         if (minhaPorta != null && !morto) {   
-            if (Input.GetKeyUp(KeyCode.E)) {
-                minhaPorta.Abrindo();
+            if (minhaPorta.DestinoPorta()) {
+                if (Input.GetKeyUp(KeyCode.E)) {
+                    minhaPorta.Abrindo();
 
-                Invoke("Entrando", 1.5f);
-                morto = true;
-                meuRB.velocity = Vector2.zero;
-                meuAnim.SetBool("Movendo", false);
+                    Invoke("Entrando", 1.5f);
+                    morto = true;
+                    meuRB.velocity = Vector2.zero;
+                    meuAnim.SetBool("Movendo", false);
+                } 
             }
         }
     }
