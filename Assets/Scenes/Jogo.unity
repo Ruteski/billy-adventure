@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &977273396 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 977273396, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+  m_PrefabInstance: {fileID: 4079395504487923756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1146314876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3486275359656199559, guid: 4a5882f908d43234caa0c9abb3d4c496, type: 3}
@@ -189,11 +200,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7745ae082a5af19468ac6abe460e2f91, type: 3}
+--- !u!114 &1547917742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1547917742, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+  m_PrefabInstance: {fileID: 4079395504487923756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1738713653 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 2252405691103618463, guid: b048f70ccbb440043af2d33fb08202e1, type: 3}
   m_PrefabInstance: {fileID: 2252405690560548778}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750750165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1750750165, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+  m_PrefabInstance: {fileID: 4079395504487923756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2252405690560548778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4455,6 +4488,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8607257466899558586}
+    - target: {fileID: 4079395504635588356, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+      propertyPath: coracoes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079395504635588356, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+      propertyPath: coracoes.Array.data[0]
+      value: 
+      objectReference: {fileID: 977273396}
+    - target: {fileID: 4079395504635588356, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+      propertyPath: coracoes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1750750165}
+    - target: {fileID: 4079395504635588356, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
+      propertyPath: coracoes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1547917742}
     - target: {fileID: 4079395504635588357, guid: 2f14a6327d0ef004aa2957b9b6ab6b82, type: 3}
       propertyPath: m_RootOrder
       value: 6
