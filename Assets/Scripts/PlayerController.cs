@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         meuAnim = GetComponent<Animator>();
         boxCol = GetComponent<BoxCollider2D>();
+
+        vida = FindObjectOfType<GameManager>().GetVida();
     }
 
     void Update() {

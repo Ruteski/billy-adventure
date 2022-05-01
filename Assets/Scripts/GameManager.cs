@@ -22,4 +22,8 @@ public class GameManager : MonoBehaviour
     public void MudaCena(string destino) {
         SceneManager.LoadScene(destino);
     }
+
+    public int GetVida() {
+        return vida;
+    }
 }
