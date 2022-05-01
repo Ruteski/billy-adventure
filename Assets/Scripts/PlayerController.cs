@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
                     vida--; 
 
                     gameManager.SetVida(vida);
+                    gameManager.AjustaVida();
 
                     delayDano = 2f;
 
